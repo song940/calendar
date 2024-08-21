@@ -100,6 +100,17 @@ input[type="date"], input[type="text"] {
   justify-content: space-between;
 }
 
+.event-item-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event-item-content time {
+  color: #999;
+  font-size: small;
+}
+
 .event-item:hover {
   background-color: #f0f0f0;
 }
@@ -108,16 +119,15 @@ input[type="date"], input[type="text"] {
   margin-right: 10px;
 }
 
-.event-item span {
-  flex-grow: 1;
-}
-
-.completed {
-  text-decoration: line-through;
+.event-completed {
   color: #888;
 }
 
-@media screen and (max-width: 768px) {
+.event-completed .event-item-description {
+  text-decoration: line-through;
+}
+
+@media screen and (max-width: 980px) {
   .app-container {
     flex-direction: column;
   }

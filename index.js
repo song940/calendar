@@ -1,4 +1,4 @@
-import { ready } from 'https://lsong.org/scripts/dom.js';
+import { ready, cls } from 'https://lsong.org/scripts/dom.js';
 import { h, render, useState, useEffect } from 'https://lsong.org/scripts/react/index.js';
 
 const App = () => {
@@ -123,14 +123,16 @@ const App = () => {
     filter !== 'create' && h('div', { id: 'eventList' },
       sortedFilteredEvents.length > 0 ?
         sortedFilteredEvents.map(event =>
-          h('div', { className: 'event-item', key: event.id }, [
+          h('div', { className: cls('event-item', { 'event-completed': event.completed }), key: event.id }, [
             h('input', {
               type: 'checkbox',
               checked: event.completed,
               onChange: () => toggleEventComplete(event.id)
             }),
-            h('span', { className: event.completed ? 'completed' : '' },
-              `${event.description} (${event.startDate} - ${event.endDate})`),
+            h('div', { className: 'event-item-content' },
+              h('time', null, `${event.startDate} - ${event.endDate}`),
+              h('span', { className: 'event-item-description' }, event.description)
+            ),
             h('button', { onClick: () => deleteEvent(event.id), className: 'delete-btn' }, "🗑️")
           ])
         )
