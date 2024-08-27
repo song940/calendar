@@ -1,5 +1,6 @@
 @import url(https://lsong.org/css/stylesheet.css);
 @import url(https://lsong.org/stylesheets/card.css);
+@import url(https://lsong.org/stylesheets/form.css);
 @import url(https://lsong.org/stylesheets/button.css);
 
 .container {
@@ -20,11 +21,6 @@
   width: 100%;
   height: 50vh;
   padding: 20px;
-}
-
-.card {
-  border-radius: 10px;
-  background-color: #fff;
 }
 
 .backup {
@@ -56,31 +52,6 @@ x-calendar {
 #eventFilters label {
   margin-right: 15px;
   cursor: pointer;
-}
-
-.date-inputs {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.date-input-group {
-  width: 48%;
-}
-
-.date-input-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #666;
-}
-
-input[type="date"], input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
 #eventList {
@@ -131,6 +102,7 @@ input[type="date"], input[type="text"] {
   .app-container {
     flex-direction: column;
   }
+
   .calendar-container,
   .scheduler-container {
     height: 100%;

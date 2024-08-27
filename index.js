@@ -107,20 +107,25 @@ const App = () => {
       ])
     ]),
     filter === 'create' ? h('form', { className: 'event-form', onSubmit: addEvent }, [
-      h('div', { className: 'date-inputs' }, [
-        h('div', { className: 'date-input-group' }, [
+      h('div', { className: 'flex gap-10' }, [
+        h('div', { className: 'form-field' }, [
           h('label', null, "Start"),
-          h('input', { type: 'date', className: 'input', value: startDate, onChange: (e) => setStartDate(e.target.value), required: true })
+          h('input', { type: 'date', className: 'input input-block', value: startDate, onChange: (e) => setStartDate(e.target.value), required: true })
         ]),
-        h('div', { className: 'date-input-group' }, [
+        h('div', { className: 'form-field' }, [
           h('label', null, "End"),
-          h('input', { type: 'date', className: 'input', value: endDate, onChange: (e) => setEndDate(e.target.value), required: true })
+          h('input', { type: 'date', className: 'input input-block', value: endDate, onChange: (e) => setEndDate(e.target.value), required: true })
         ])
       ]),
-      h('input', { type: 'text', value: description, onChange: (e) => setDescription(e.target.value), placeholder: 'Description', required: true }),
-      h('button', { type: 'submit', className: 'button button-primary' }, "Create Event")
-    ]) : null,
-    filter !== 'create' && h('div', { id: 'eventList' },
+      h('div', { className: 'form-field' }, [
+        h('input', { type: 'text', className: 'input input-block', value: description, onChange: (e) => setDescription(e.target.value), placeholder: 'Description', required: true }),
+      ]),
+      h('div', { className: 'form-field' }, [
+        h('button', { type: 'submit', className: 'button button-primary' }, "Create Event")
+      ]),
+    ])
+    :
+    h('div', { id: 'eventList' },
       sortedFilteredEvents.length > 0 ?
         sortedFilteredEvents.map(event =>
           h('div', { className: cls('event-item', { 'event-completed': event.completed }), key: event.id }, [
