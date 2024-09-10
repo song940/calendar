@@ -6,8 +6,6 @@
 .container {
   box-shadow: none;
   background: transparent;
-  --container-width: 80%;
-  overflow: hidden;
 }
 
 .app-container {
