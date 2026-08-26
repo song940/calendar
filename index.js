@@ -1,5 +1,10 @@
 import { ready, cls } from 'https://lsong.org/scripts/dom/index.js';
 import { h, render, useState, useEffect } from 'https://lsong.org/scripts/react/index.js';
+import { defineDateCalendar } from 'https://lsong.org/scripts/elements/calendar.js';
+import { defineStorageBackup } from 'https://lsong.org/scripts/elements/storage-backup.js';
+
+defineDateCalendar();
+defineStorageBackup();
 
 const App = () => {
   const [events, setEvents] = useState([]);
